@@ -1,0 +1,23 @@
+package = 'ttc'
+version = 'scm-1'
+source  = {
+    url = '/dev/null',
+}
+-- Put any modules your app depends on here
+dependencies = {
+    'tarantool',
+    'lua >= 5.1',
+    'checks == 3.1.0-1',
+    'cartridge == 2.7.4-1',
+    'metrics == 0.13.0-1',
+    'cartridge-cli-extensions == 1.1.1-1',
+}
+build = {
+    type = 'make',
+    install_variables = {
+        LIBDIR = "$(LIBDIR)",
+        LUADIR = "$(LUADIR)",
+    },
+    build_target = "build_release_lib",
+    install_target = "install_release",
+}
